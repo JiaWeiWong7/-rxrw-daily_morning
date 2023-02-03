@@ -65,6 +65,6 @@ data = {"weather":{"value":wea},"temperature":{"value":temperature},"love_days":
 data2 = {"weather":{"value":wea},"temperature":{"value":temperature},"love_days":{"value":get_countB()},"birthday_left":{"value":get_birthdayB()},"words":{"value":get_words(), "color":get_random_color()}}
 
 res = wm.send_template(user_id, template_id, data)
-res2 = wm2.send_template("okf1F6Mx5dcSMTDgGoYtMl81UE9Y", "Zg_p9Q6_ZsAWaThtMh_OLP-GmQ9iiGeNlYuLPSMgqBg", data2)
+res2 = wm2.send_template("okf1F6Mx5dcSMTDgGoYtMl81UE9Y", "g7ugKX92298KUQJZB3jRgbBa9_5mMmGwitq5RHnR2hQ", data2)
 print(res)
 print(res2)
