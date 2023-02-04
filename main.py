@@ -59,12 +59,15 @@ client2 = WeChatClient("wx43670927a37a0863", "4fcef27194be995c9cf7de76531f732a")
 
 wm = WeChatMessage(client)
 wm2 = WeChatMessage(client2)
+wm3 = WeChatMessage(client2)
 
 wea, temperature = get_weather()
 data = {"weather":{"value":wea},"temperature":{"value":temperature},"love_days":{"value":get_count()},"birthday_left":{"value":get_birthday()},"words":{"value":get_words(), "color":get_random_color()}}
 data2 = {"weather":{"value":wea},"temperature":{"value":temperature},"love_days":{"value":get_countB()},"birthday_left":{"value":get_birthdayB()},"words":{"value":get_words(), "color":get_random_color()}}
 
 res = wm.send_template(user_id, template_id, data)
-res2 = wm2.send_template("okf1F6Mx5dcSMTDgGoYtMl81UE9Y", "vixz_5ilXTcIstrYlcM70tPT2agPZiuPNWmAwKg57TM", data2)
+res2 = wm2.send_template("okf1F6PDBO6RO_-31m-CqU3-5u04", "vixz_5ilXTcIstrYlcM70tPT2agPZiuPNWmAwKg57TM", data2)
+res3 = wm2.send_template("okf1F6Mx5dcSMTDgGoYtMl81UE9Y", "vixz_5ilXTcIstrYlcM70tPT2agPZiuPNWmAwKg57TM", data2)
 print(res)
 print(res2)
+print(res3)
