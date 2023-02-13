@@ -19,10 +19,16 @@ template_id = os.environ["TEMPLATE_ID"]
 
 
 def get_weather():
-  url = "http://autodev.openspeech.cn/csp/api/v2.1/weather?openId=aiuicus&clientType=android&sign=android&city=" + city
+  url = "https://restapi.amap.com/v3/weather/weatherInfo?city=310115&key=89997067b445c262b3343625d01e0404"
   res = requests.get(url).json()
-  weather = res['data']['list'][0]
-  return weather['weather'], math.floor(weather['temp'])
+  weather = res['lives']
+  return weather['weather'], math.floor(weather['temperature'])
+
+def get_weather2():
+  url = "https://restapi.amap.com/v3/weather/weatherInfo?city=510100&key=89997067b445c262b3343625d01e0404"
+  res = requests.get(url).json()
+  weather = res['lives']
+  return weather['weather'], math.floor(weather['temperature'])
 
 def get_count():
   delta = today - datetime.strptime(start_date, "%Y-%m-%d")
@@ -63,6 +69,7 @@ wm3 = WeChatMessage(client2)
 
 wea, temperature = get_weather()
 data = {"weather":{"value":wea},"temperature":{"value":temperature},"love_days":{"value":get_count()},"birthday_left":{"value":get_birthday()},"words":{"value":get_words(), "color":get_random_color()}}
+wea, temperature = get_weather2()
 data2 = {"weather":{"value":wea},"temperature":{"value":temperature},"love_days":{"value":get_countB()},"birthday_left":{"value":get_birthdayB()},"words":{"value":get_words(), "color":get_random_color()}}
 
 res = wm.send_template(user_id, template_id, data)
