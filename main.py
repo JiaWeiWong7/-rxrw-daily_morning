@@ -21,14 +21,14 @@ template_id = os.environ["TEMPLATE_ID"]
 def get_weather():
   url = "https://restapi.amap.com/v3/weather/weatherInfo?city=310115&key=89997067b445c262b3343625d01e0404"
   res = requests.get(url).json()
-  weather = result['lives'][0]['weather']
-  return weather['weather'], math.floor(result['lives'][0]['temperature'])
+  weather = res['lives'][0]['weather']
+  return weather['weather'], math.floor(res['lives'][0]['temperature'])
 
 def get_weather2():
   url = "https://restapi.amap.com/v3/weather/weatherInfo?city=510100&key=89997067b445c262b3343625d01e0404"
   res = requests.get(url).json()
-  weather = result['lives'][0]['weather']
-  return weather['weather'], math.floor(result['lives'][0]['temperature'])
+  weather = res['lives'][0]['weather']
+  return weather['weather'], math.floor(res['lives'][0]['temperature'])
 
 def get_count():
   delta = today - datetime.strptime(start_date, "%Y-%m-%d")
